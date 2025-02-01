@@ -25,7 +25,7 @@ import {
     specificProductSuccess,
     updateCurrentUser,
 } from './userSlice';
-const REACT_APP_BASE_URL = "https://lively-tree-01f0fd50f.4.azurestaticapps.net";
+const REACT_APP_BASE_URL = "http://localhost:5000";
 export const authUser = (fields, role, mode) => async (dispatch) => {
     dispatch(authRequest());
 

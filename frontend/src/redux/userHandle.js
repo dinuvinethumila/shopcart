@@ -25,13 +25,13 @@ import {
     specificProductSuccess,
     updateCurrentUser,
 } from './userSlice';
-const REACT_APP_BASE_URL = "shopcart-g6b6exbrddb2h4hw.canadacentral-01.azurewebsites.net";
+const REACT_APP_BASE_URL = process.env.REACT_APP_BASE_URL;
 export const authUser = (fields, role, mode) => async (dispatch) => {
     dispatch(authRequest());
 
     try {
         const result = await axios.post(`${REACT_APP_BASE_URL}/${role}${mode}`, fields, {
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' }
         });
         if (result.data.role) {
             dispatch(authSuccess(result.data));

@@ -7,6 +7,8 @@ dotenv.config(); // Load .env variables at the very beginning
 
 const app = express();
 const Routes = require("./routes/route.js");
+// Routes
+app.use('/', Routes);
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URL = process.env.MONGO_URL; // Changed to MONGO_URl
@@ -34,8 +36,7 @@ mongoose
         process.exit(1); // Exit if DB connection fails
     });
 
-// Routes
-app.use('/', Routes);
+
 
 // Start Server
 app.listen(PORT, () => {

@@ -25,7 +25,7 @@ import {
     specificProductSuccess,
     updateCurrentUser,
 } from './userSlice';
-const REACT_APP_BASE_URL = "http://localhost:5000";
+const REACT_APP_BASE_URL = "shopcart-g6b6exbrddb2h4hw.canadacentral-01.azurewebsites.net";
 export const authUser = (fields, role, mode) => async (dispatch) => {
     dispatch(authRequest());
 

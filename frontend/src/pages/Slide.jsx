@@ -37,13 +37,13 @@ const Slide = ({ products, title }) => {
                 itemClass="carousel-item-padding-40-px">
                 {
                     products.map((product, index) => (
-                        <Link key={index} to={`/product/view/${product._id}`} style={{ textDecoration: 'none' }}>
+                        <Link key={index} to={/product/view/${product._id}} style={{ textDecoration: 'none' }}>
                             <Box textAlign="center" style={{ padding: '25px 15px' }}>
                                 <Image src={product.productImage} />
                                 <TitleText style={{ fontWeight: 600, color: '#212121' }}>{product.productName}</TitleText>
                                 <TextContainer>
                                     <Text style={{ color: '#525050', textDecoration: "line-through" }}>{product.price.mrp}</Text>
-                                    <Text>₹{product.price.cost}</Text>
+                                    <Text>Rs.{product.price.cost}</Text>
                                     <Text style={{ color: 'green' }}>{product.price.discountPercent}</Text>
                                 </TextContainer>
                                 <Text style={{ color: '#212121', opacity: '.6' }}>{product.tagline}</Text>
@@ -123,5 +123,5 @@ const TextContainer = styled(Container)`
     gap: 8px;
     justify-content: center;
     align-items: center;
-    margin: 8px;
+    margin: 8px;
 `;

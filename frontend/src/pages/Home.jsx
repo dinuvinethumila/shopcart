@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   const adURL =
-    'https://rukminim1.flixcart.com/flap/464/708/image/1f03e99f6dc9f7a6.jpg?q=70';
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4WqvSG-hh4bMXWCDf_I2SWH1Fvh6-aUK1XQ&s';
 
   const dispatch = useDispatch();
 
@@ -129,5 +129,5 @@ const RightComponent = styled(Box)(({ theme }) => ({
   textAlign: 'center',
   [theme.breakpoints.down('md')]: {
     display: 'none',
-  },
+  },
 }));

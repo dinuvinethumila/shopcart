@@ -5,7 +5,8 @@ import {
     CardContent,
     CardHeader,
     Divider,
-    SvgIcon
+    SvgIcon,
+    Box
 } from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -16,60 +17,69 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 const SalesChart = ({ type }) => {
-
     const navigate = useNavigate();
 
     return (
-        <Card sx={{ backgroundImage: "linear-gradient(320deg, rgb(58 163 171 / 32%) 0%, rgb(8 23 198 / 32%) 100%)" }}>
-            <CardHeader
-                action={(
+        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, marginTop: 4 }}>
+            {/* First Card */}
+            <Card sx={{ 
+                backgroundImage: "linear-gradient(320deg, rgb(58 163 171 / 32%) 0%, rgb(8 23 198 / 32%) 100%)", 
+                width: 'auto',
+                maxWidth: '420px',
+            }}>
+                <CardHeader
+                    action={(
+                        <Button
+                            color="inherit"
+                            size="small"
+                            startIcon={(
+                                <SvgIcon fontSize="small">
+                                    <RefreshIcon />
+                                </SvgIcon>
+                            )}
+                        >
+                            Refresh
+                        </Button>
+                    )}
+                />
+                <CardContent sx={{ display: "flex", justifyContent: 'center', alignItems: "center", height: 310 }}>
+                    <ResponsiveChart
+                        options={ChartDatabyYear.options}
+                        series={ChartDatabyYear.series}
+                        type={type}
+                    />
+                </CardContent>
+
+                <Divider />
+
+                <CardActions sx={{ justifyContent: 'flex-end' }}>
                     <Button
                         color="inherit"
-                        size="small"
-                        startIcon={(
+                        endIcon={(
                             <SvgIcon fontSize="small">
-                                <RefreshIcon />
+                                <ArrowForwardIcon />
                             </SvgIcon>
                         )}
+                        size="small"
+                        onClick={() => navigate("/Seller/orders")}
                     >
-                        Refresh
+                        Details
                     </Button>
-                )}
-            />
-            <CardContent sx={{ display: "flex", justifyContent: 'center', alignItems: "center", height: 310 }}>
-                <ResponsiveChart
-                    options={ChartDatabyYear.options}
-                    series={ChartDatabyYear.series}
-                    type={type}
-                />
-            </CardContent>
+                </CardActions>
+            </Card>
 
-            <Divider />
-
-            <CardActions sx={{ justifyContent: 'flex-end' }}>
-                <Button
-                    color="inherit"
-                    endIcon={(
-                        <SvgIcon fontSize="small">
-                            <ArrowForwardIcon />
-                        </SvgIcon>
-                    )}
-                    size="small"
-                    onClick={() => navigate("/Seller/orders")}
-                >
-                    Details
-                </Button>
-            </CardActions>
-        </Card>
+            {/* Second Card */}
+            
+        </Box>
     );
 };
 
 export default SalesChart;
 
 const ResponsiveChart = styled(Chart)`
-    width: 550px;
+    width: 400px;
 
-    @media (max-width: 600px) {
-        width: 350px;
-    }
+    @media (max-width: 300px) {
+        width: 350px;
+    }
 `;

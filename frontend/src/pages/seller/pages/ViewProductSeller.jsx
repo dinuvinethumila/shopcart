@@ -126,8 +126,8 @@ const ViewProductSeller = () => {
                   <ProductInfo>
                     <ProductName>{productDetails && productDetails.productName}</ProductName>
                     <PriceContainer>
-                      <PriceCost>₹{productDetails && productDetails.price && productDetails.price.cost}</PriceCost>
-                      <PriceMrp>₹{productDetails && productDetails.price && productDetails.price.mrp}</PriceMrp>
+                      <PriceCost>Rs.{productDetails && productDetails.price && productDetails.price.cost}</PriceCost>
+                      <PriceMrp>Rs.{productDetails && productDetails.price && productDetails.price.mrp}</PriceMrp>
                       <PriceDiscount>{productDetails && productDetails.price && productDetails.price.discountPercent}% off</PriceDiscount>
                     </PriceContainer>
                     <Description>{productDetails && productDetails.description}</Description>
@@ -437,5 +437,5 @@ const ReviewCardDivision = styled.div`
 `;
 
 const ReviewDetails = styled.div`
-  flex: 1;
+  flex: 1;
 `;

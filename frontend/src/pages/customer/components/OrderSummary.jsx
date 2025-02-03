@@ -40,15 +40,15 @@ const OrderSummary = ({ handleNext, handleBack }) => {
                 <React.Fragment>
                     <List disablePadding>
                         <ListItem sx={{ py: 1, px: 0 }}>
-                            <ListItemText primary={productDetailsCart.productName} secondary={Quantity: ${productDetailsCart.quantity}} />
+                            <ListItemText primary={productDetailsCart.productName} secondary={`Quantity: ${productDetailsCart.quantity}`} />
                             <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                                {Rs.${productDetailsCart.price && productDetailsCart.price.mrp * productDetailsCart.quantity}}
+                                {`₹${productDetailsCart.price && productDetailsCart.price.mrp * productDetailsCart.quantity}`}
                             </Typography>
                         </ListItem>
                         <ListItem sx={{ py: 1, px: 0 }}>
                             <ListItemText primary="Discount" />
                             <Typography variant="subtitle1" sx={{ color: "green" }}>
-                            Rs.{productDetailsCart.price && productDetailsCart.price.mrp - productDetailsCart.price.cost}
+                                ₹{productDetailsCart.price && productDetailsCart.price.mrp - productDetailsCart.price.cost}
                             </Typography>
                         </ListItem>
                         <ListItem sx={{ py: 1, px: 0 }}>
@@ -60,7 +60,7 @@ const OrderSummary = ({ handleNext, handleBack }) => {
                         <ListItem sx={{ py: 1, px: 0 }}>
                             <ListItemText primary="Total Amount" />
                             <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                            Rs.{productDetailsCart.price && productDetailsCart.price.cost * productDetailsCart.quantity}
+                                ₹{productDetailsCart.price && productDetailsCart.price.cost * productDetailsCart.quantity}
                             </Typography>
                         </ListItem>
                     </List>
@@ -79,20 +79,20 @@ const OrderSummary = ({ handleNext, handleBack }) => {
                     <List disablePadding>
                         {cartDetails.map((product, index) => (
                             <ListItem key={index} sx={{ py: 1, px: 0 }}>
-                                <ListItemText primary={product.productName} secondary={Quantity: ${product.quantity}} />
-                                <Typography variant="body2">{₹${product.quantity * product.price.mrp}}</Typography>
+                                <ListItemText primary={product.productName} secondary={`Quantity: ${product.quantity}`} />
+                                <Typography variant="body2">{`₹${product.quantity * product.price.mrp}`}</Typography>
                             </ListItem>
                         ))}
                         <ListItem sx={{ py: 1, px: 0 }}>
-                            <ListItemText primary={Price (${totalQuantity} items)} />
+                            <ListItemText primary={`Price (${totalQuantity} items)`} />
                             <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                            Rs.{totalOGPrice}
+                                ₹{totalOGPrice}
                             </Typography>
                         </ListItem>
                         <ListItem sx={{ py: 1, px: 0 }}>
                             <ListItemText primary="Discount" />
                             <Typography variant="subtitle1" sx={{ color: "green" }}>
-                            Rs.{totalOGPrice - totalNewPrice}
+                                ₹{totalOGPrice - totalNewPrice}
                             </Typography>
                         </ListItem>
                         <ListItem sx={{ py: 1, px: 0 }}>
@@ -104,7 +104,7 @@ const OrderSummary = ({ handleNext, handleBack }) => {
                         <ListItem sx={{ py: 1, px: 0 }}>
                             <ListItemText primary="Total Amount" />
                             <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                                Rs.{totalNewPrice}
+                                ₹{totalNewPrice}
                             </Typography>
                         </ListItem>
                     </List>
@@ -135,4 +135,4 @@ const OrderSummary = ({ handleNext, handleBack }) => {
     );
 }
 
-export default OrderSummary
+export default OrderSummary

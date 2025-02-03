@@ -6,7 +6,6 @@ export const RedButton = styled(Button)`
     background-color: #f00;
     color: white;
     margin-left: 4px;
-
     &:hover {
       background-color: #eb7979;
       border-color: #f26767;
@@ -110,6 +109,6 @@ export const IndigoButton = styled(Button)`
       background-color: #534ea6;
       border-color: #473d90;
       box-shadow: none;
-    }
-  }
+    }
+  }
 `;

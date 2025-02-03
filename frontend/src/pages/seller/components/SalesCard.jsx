@@ -9,66 +9,61 @@ const SalesCard = ({ title, total, color, icon }) => {
     return (
         <Card
             sx={{
-                py: 3,
-                px: 2,
-                boxShadow: 2,
+                py: 5,
+                boxShadow: 0,
                 textAlign: 'center',
-                color: (theme) => theme.palette.text.primary,
+                color: (theme) => theme.palette[color].darker,
                 backgroundImage: (theme) =>
-                    linear-gradient(135deg, ${alpha(theme.palette.secondary.main, 0.1)} 0%, ${alpha(theme.palette.secondary.main, 0.2)} 100%),
-                borderRadius: 2,
-                width: 250,
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: 6,
-                },
+                    `linear-gradient(135deg, ${alpha(theme.palette[color].dark, 0)} 0%, ${alpha(
+                        theme.palette[color].dark,
+                        0.24
+                    )} 100%)`,
             }}
         >
             <StyledIcon
                 sx={{
-                    backgroundColor: (theme) => theme.palette.info.main,
-                    color: '#fff',
-                    boxShadow: 1,
-                    '&:hover': {
-                        boxShadow: 4,
-                    },
+                    color: (theme) => theme.palette[color].dark,
+                    backgroundImage: (theme) =>
+                        `linear-gradient(135deg, ${alpha(theme.palette[color].dark, 0)} 0%, ${alpha(
+                            theme.palette[color].dark,
+                            0.24
+                        )} 100%)`,
                 }}
             >
-                <Iconify icon={icon} width={22} height={22} />
+                <Iconify icon={icon} width={24} height={24} />
             </StyledIcon>
-    
-            <CountUpStyled start={0} end={total} duration={5} sx={{ color: (theme) => theme.palette.success.main }} />
-    
-            <Typography variant="subtitle1" sx={{ opacity: 0.8, fontWeight: 500, color: (theme) => theme.palette.warning.main }}>
+
+            <Data start={0} end={total} duration={5} />
+
+            <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
                 {title}
             </Typography>
         </Card>
     );
 }
-    export default SalesCard;
-    
-    const Iconify = forwardRef(({ icon, width = 20, sx, ...other }, ref) => (
-        <Box ref={ref} component={Icon} icon={icon} sx={{ width, height: width, ...sx }} {...other} />
-    ));
-    
-    const CountUpStyled = styled(CountUp)`
-        margin: 0;
-        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-        font-weight: 700;
-        font-size: 2.5rem;
-        line-height: 1.167;
-        letter-spacing: 0em;
-    `;
-    
-    const StyledIcon = styled('div')(({ theme }) => ({
-        margin: 'auto',
-        display: 'flex',
-        borderRadius: '50%',
-        alignItems: 'center',
-        width: theme.spacing(7),
-        height: theme.spacing(7),
-        justifyContent: 'center',
-        marginBottom: theme.spacing(2),
-        boxShadow: theme.shadows[1],
-    }));
+
+export default SalesCard
+
+const Iconify = forwardRef(({ icon, width = 20, sx, ...other }, ref) => (
+    <Box ref={ref} component={Icon} icon={icon} sx={{ width, height: width, ...sx }} {...other} />
+));
+
+const Data = styled(CountUp)`
+    margin: 0;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1.167;
+    letter-spacing: 0em;
+`;
+
+const StyledIcon = styled('div')(({ theme }) => ({
+    margin: 'auto',
+    display: 'flex',
+    borderRadius: '50%',
+    alignItems: 'center',
+    width: theme.spacing(8),
+    height: theme.spacing(8),
+    justifyContent: 'center',
+    marginBottom: theme.spacing(3),
+}));

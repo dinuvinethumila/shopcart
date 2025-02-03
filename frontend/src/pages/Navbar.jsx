@@ -133,7 +133,7 @@ const Navbar = () => {
                                 duration={500}
                                 onClick={homeHandler}
                             >
-                                QUICKMART
+                                SHOPCART
                             </NavLogo>
                         </Typography>
                     </HomeContainer>
@@ -214,7 +214,7 @@ const Navbar = () => {
                             >
                                 <LocalMallIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
 
-                                QUICKMART
+                                SHOPCART
                             </NavLogo>
                         </Typography>
                     </HomeContainer>
@@ -383,6 +383,6 @@ const styles = {
             bgcolor: 'background.paper',
             transform: 'translateY(-50%) rotate(45deg)',
             zIndex: 0,
-        },
-    }
+        },
+    }
 }

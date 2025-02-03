@@ -47,7 +47,7 @@ const SellerDashboard = () => {
         <>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar position="absolute" sx={{ backgroundColor: "#4d1c9c" }}>
+                <AppBar open={open} position='absolute' sx={{ backgroundColor: "#4d1c9c" }}>
                     <Toolbar sx={{ pr: '24px' }}>
                         <IconButton
                             edge="start"
@@ -62,6 +62,7 @@ const SellerDashboard = () => {
                             <ListIcon />
                         </IconButton>
 
+                        {/* Desktop */}
                         <Typography
                             component="h1"
                             variant="h6"
@@ -76,7 +77,7 @@ const SellerDashboard = () => {
                                 letterSpacing: '.3rem',
                                 color: 'inherit',
                                 textDecoration: 'none',
-                                cursor: 'pointer',
+                                cursor: "pointer"
                             }}
                         >
                             <NavLogo
@@ -89,9 +90,12 @@ const SellerDashboard = () => {
                                 onClick={homeHandler}
                             >
                                 <LocalMallIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+
                                 SHOPCART
                             </NavLogo>
                         </Typography>
+
+                        {/* Mobile */}
 
                         <Typography
                             variant="h5"
@@ -117,6 +121,7 @@ const SellerDashboard = () => {
                                 onClick={homeHandler}
                             >
                                 <LocalMallIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+
                                 SHOPCART
                             </NavLogo>
                         </Typography>
@@ -124,7 +129,6 @@ const SellerDashboard = () => {
                         <AccountMenu />
                     </Toolbar>
                 </AppBar>
-
                 <Drawer variant="permanent" open={open} sx={open ? styles.drawerStyled : styles.hideDrawer}>
                     <Toolbar sx={styles.toolBarStyled}>
                         <IconButton onClick={toggleDrawer}>
@@ -136,7 +140,6 @@ const SellerDashboard = () => {
                         <SideBar />
                     </List>
                 </Drawer>
-
                 <Box component="main" sx={styles.boxStyled}>
                     <Toolbar />
                     <Routes>
@@ -165,12 +168,12 @@ const SellerDashboard = () => {
                         <Route path="/logout" element={<Logout />} />
                     </Routes>
                 </Box>
-            </Box>
+            </Box >
         </>
     );
 }
 
-export default SellerDashboard;
+export default SellerDashboard
 
 const styles = {
     boxStyled: {
@@ -189,15 +192,12 @@ const styles = {
         px: [1],
     },
     drawerStyled: {
+        display: "flex"
+    },
+    hideDrawer: {
         display: 'flex',
         '@media (max-width: 600px)': {
             display: 'none',
         },
     },
-    hideDrawer: {
-        display: 'none',
-        '@media (max-width: 600px)': {
-            display: 'flex',
-        },
-    },
-};
+}

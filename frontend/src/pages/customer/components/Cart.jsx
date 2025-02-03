@@ -45,7 +45,7 @@ const Cart = ({ setIsCartOpen }) => {
         console.log(currentUser);
         dispatch(updateCustomer(currentUser, currentUser._id));
         setIsCartOpen(false)
-        navigate(/product/buy/${id})
+        navigate(`/product/buy/${id}`)
     }
 
     const allProductsBuyingHandler = () => {
@@ -104,19 +104,19 @@ const Cart = ({ setIsCartOpen }) => {
                                         {data.productName}
                                     </Typography>
                                     <Typography variant="subtitle2">
-                                        Original Price: Rs.{data.price.mrp}
+                                        Original Price: ₹{data.price.mrp}
                                     </Typography>
                                     <Typography variant="subtitle2">
                                         Discount: {data.price.discountPercent}% Off
                                     </Typography>
                                     <Typography variant="subtitle2">
-                                        Final Price: Rs.{data.price.cost}
+                                        Final Price: ₹{data.price.cost}
                                     </Typography>
                                     <Typography variant="subtitle2">
                                         Quantity: {data.quantity}
                                     </Typography>
                                     <Typography variant="subtitle2">
-                                        Total: Rs.{data.quantity * data.price.cost}
+                                        Total: ₹{data.quantity * data.price.cost}
                                     </Typography>
                                     <ButtonContainer>
                                         <Button
@@ -162,9 +162,9 @@ const Cart = ({ setIsCartOpen }) => {
                         <DetailsContainer>
                             Price ({totalQuantity} items) = ₹{totalOGPrice}
                             <br /><br />
-                            Discount = Rs.{totalOGPrice - totalNewPrice}
+                            Discount = ₹{totalOGPrice - totalNewPrice}
                             <Divider sx={{ my: 1 }} />
-                            Total Amount = Rs.{totalNewPrice}
+                            Total Amount = ₹{totalNewPrice}
                         </DetailsContainer>
                         <Divider sx={{ my: 1, mb: 4 }} />
                         {cartDetails.length > 0 && (
@@ -283,5 +283,5 @@ const BottomContainer = styled.div`
   position: sticky;
   bottom: 0;
   padding: 16px;
-  background-color: #f8f8f8;
+  background-color: #f8f8f8;
 `;

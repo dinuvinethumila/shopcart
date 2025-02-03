@@ -272,9 +272,9 @@ export const productDataList = [
 ];
 
 export const bannerData = [
-  { _id: 1, url: 'https://rukminim1.flixcart.com/flap/3376/560/image/8464e4d9a75b909a.jpg?q=50' },
-  { _id: 2, url: 'https://rukminim1.flixcart.com/flap/3376/560/image/a5320d3f852657e8.jpg?q=50' },
-  { _id: 3, url: 'https://rukminim1.flixcart.com/flap/3376/560/image/5df65ad101e18dbf.jpg?q=50' },
-  { _id: 4, url: 'https://rukminim1.flixcart.com/flap/3376/560/image/8a89ee09acc1a9e5.jpg?q=50' },
-  { _id: 5, url: 'https://rukminim1.flixcart.com/flap/3376/560/image/ed12b7707a04473c.jpg?q=50' },
+  { _id: 1, url: 'https://img.grouponcdn.com/message-service/EbQiFJFHagNLhRtMMmnWbACT47d/Eb-1056x100?q=50' },
+  { _id: 2, url: 'https://img.grouponcdn.com/message-service/4PuEmoYquzmEAAMyNnxjV35CEp1m/4P-1056x100' },
+  { _id: 3, url: 'https://cdn.shopify.com/s/files/1/0059/8835/2052/files/iScape-banner_3d603b45-4b18-42b9-84da-dc5ebf427cce.png?35331' },
+  { _id: 4, url: 'https://assets.rebelmouse.io/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yNzQwMTQwOC9vcmlnaW4ucG5nIiwiZXhwaXJlc19hdCI6MTczMzIzODM5Mn0.As_Sh971l56Uj5indGT1-KwBHBQJ1pySkGb0RjDHzN8/img.png' },
+  { _id: 5, url: 'https://www.csystemssoftware.com/wp-content/uploads/2023/11/c-SysReferral-Banner.jpg' },
 ]

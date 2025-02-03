@@ -6,6 +6,7 @@ export const RedButton = styled(Button)`
     background-color: #f00;
     color: white;
     margin-left: 4px;
+
     &:hover {
       background-color: #eb7979;
       border-color: #f26767;

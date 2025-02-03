@@ -52,48 +52,36 @@ const Products = ({ productData }) => {
     <>
       <ProductGrid container spacing={3}>
         {currentItems.map((data, index) => (
-          <Grid item xs={12} sm={6} md={4}
-            key={index}
-            onClick={() => navigate("/product/view/" + data._id)}
-            sx={{ cursor: "pointer" }}
-          >
-            <ProductContainer>
-              <ProductImage src={data.productImage} />
-              <ProductName>{data.productName}</ProductName>
-              <PriceMrp>{data.price.mrp}</PriceMrp>
-              <PriceCost>₹{data.price.cost}</PriceCost>
-              <PriceDiscount>{data.price.discountPercent}% off</PriceDiscount>
-              <AddToCart>
-                {currentRole === "Customer" &&
-                  <>
-                    <BasicButton
-                      onClick={(event) => handleAddToCart(event, data)}
-                    >
+          <Grid item xs={12} sm={6} md={4} key={index} onClick={() => navigate("/product/view/" + data._id)}>
+            <ProductCard>
+              <ProductImage src={data.productImage} alt={data.productName} />
+              <ProductDetails>
+                <ProductName>{data.productName}</ProductName>
+                <CategoryName>{data.category}</CategoryName>
+                <PriceSection>
+                  <PriceCost>Rs.{data.price.cost}</PriceCost>
+                  <PriceMrp>Rs.{data.price.mrp}</PriceMrp>
+                  <PriceDiscount>{data.price.discountPercent}% off</PriceDiscount>
+                </PriceSection>
+                <AddToCart>
+                  {currentRole === "Customer" && (
+                    <BasicButton onClick={(event) => handleAddToCart(event, data)}>
                       Add To Cart
                     </BasicButton>
-                  </>
-                }
-                {currentRole === "Shopcart" &&
-                  <>
-                    <BasicButton
-                      onClick={(event) => handleUpload(event, data)}
-                    >
+                  )}
+                  {currentRole === "Shopcart" && (
+                    <BasicButton onClick={(event) => handleUpload(event, data)}>
                       Upload
                     </BasicButton>
-                  </>
-                }
-                {currentRole === null &&
-                  <>
-                    <BasicButton
-                      onClick={messageHandler}
-                    >
+                  )}
+                  {currentRole === null && (
+                    <BasicButton onClick={messageHandler}>
                       Add To Cart
                     </BasicButton>
-                  </>
-                }
-
-              </AddToCart>
-            </ProductContainer>
+                  )}
+                </AddToCart>
+              </ProductDetails>
+            </ProductCard>
           </Grid>
         ))}
       </ProductGrid>
@@ -109,52 +97,73 @@ const Products = ({ productData }) => {
 
       <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
     </>
-  )
+  );
 };
 
 export default Products;
 
-const ProductContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px;
-`;
-
 const ProductGrid = styled(Grid)`
   display: flex;
-  align-items: center;
+  justify-content: center;
+`;
+
+const ProductCard = styled.div`
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  text-align: center;
+  &:hover {
+    transform: scale(1.03);
+  }
 `;
 
 const ProductImage = styled.img`
-  width: 200px;
-  height: auto;
-  margin-bottom: 8px;
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
 `;
 
-const ProductName = styled.p`
+const ProductDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+const ProductName = styled.h3`
+  font-size: 18px;
   font-weight: bold;
-  text-align: center;
 `;
 
-const PriceMrp = styled.p`
-  margin-top: 8px;
-  text-align: center;
+const CategoryName = styled.p`
+  font-size: 14px;
+  color: #777;
+`;
+
+const PriceSection = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: baseline;
+`;
+
+const PriceMrp = styled.span`
   text-decoration: line-through;
-  color: #525050;
+  color: gray;
 `;
 
-const PriceCost = styled.h3`
-  margin-top: 8px;
-  text-align: center;
+const PriceCost = styled.span`
+  font-size: 20px;
+  color: #4CAF50;
+  font-weight: bold;
 `;
 
-const PriceDiscount = styled.p`
-  margin-top: 8px;
-  text-align: center;
+const PriceDiscount = styled.span`
   color: darkgreen;
 `;
 
 const AddToCart = styled.div`
-  margin-top: 16px;
+  margin-top: 10px;
 `;

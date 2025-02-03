@@ -21,10 +21,10 @@ const SideBar = () => {
             <React.Fragment>
                 <ListItemButton
                     component={Link} to="/"
-                    sx={(location.pathname === "/" || location.pathname === "/Seller/dashboard") ? styles.currentStyle : styles.normalStyle}
+                    sx={location.pathname === "/" || location.pathname === "/Seller/dashboard" ? styles.currentStyle : styles.normalStyle}
                 >
-                    <ListItemIcon>
-                        <WidgetsIcon sx={{ color: (location.pathname === "/" || location.pathname === "/Seller/dashboard") ? '#4d1c9c' : 'inherit' }} />
+                    <ListItemIcon sx={styles.icon}>
+                        <WidgetsIcon sx={{ color: location.pathname === "/" || location.pathname === "/Seller/dashboard" ? '#4d1c9c' : 'inherit' }} />
                     </ListItemIcon>
                     <ListItemText primary="Home" />
                 </ListItemButton>
@@ -33,68 +33,84 @@ const SideBar = () => {
                     component={Link} to="/Seller/products"
                     sx={location.pathname.startsWith('/Seller/products') ? styles.currentStyle : styles.normalStyle}
                 >
-                    <ListItemIcon>
+                    <ListItemIcon sx={styles.icon}>
                         <ShoppingCartIcon sx={{ color: location.pathname.startsWith('/Seller/products') ? '#4d1c9c' : 'inherit' }} />
                     </ListItemIcon>
                     <ListItemText primary="Products" />
                 </ListItemButton>
+
                 <ListItemButton
                     component={Link} to="/Seller/orders"
                     sx={location.pathname.startsWith('/Seller/orders') ? styles.currentStyle : styles.normalStyle}
                 >
-                    <ListItemIcon>
+                    <ListItemIcon sx={styles.icon}>
                         <PendingActionsIcon sx={{ color: location.pathname.startsWith("/Seller/orders") ? '#4d1c9c' : 'inherit' }} />
                     </ListItemIcon>
                     <ListItemText primary="Orders" />
                 </ListItemButton>
-                {
-                    currentRole === "Shopcart" &&
+
+                {currentRole === "Shopcart" && (
                     <ListItemButton
                         component={Link} to="/Seller/shopcart"
                         sx={location.pathname.startsWith('/Seller/shopcart') ? styles.currentStyle : styles.normalStyle}
                     >
-                        <ListItemIcon>
+                        <ListItemIcon sx={styles.icon}>
                             <AdminPanelSettingsIcon sx={{ color: location.pathname.startsWith("/Seller/shopcart") ? '#4d1c9c' : 'inherit' }} />
                         </ListItemIcon>
                         <ListItemText primary="Shopcart" />
                     </ListItemButton>
-                }
+                )}
             </React.Fragment>
+
             <Divider sx={{ my: 1 }} />
+
             <React.Fragment>
                 <ListItemButton
                     component={Link} to="/Seller/profile"
                     sx={location.pathname.startsWith('/Seller/profile') ? styles.currentStyle : styles.normalStyle}
                 >
-                    <ListItemIcon>
+                    <ListItemIcon sx={styles.icon}>
                         <AccountCircleIcon sx={{ color: location.pathname.startsWith("/Seller/profile") ? '#4d1c9c' : 'inherit' }} />
                     </ListItemIcon>
                     <ListItemText primary="Profile" />
                 </ListItemButton>
+
                 <ListItemButton
                     component={Link} to="/logout"
                     sx={location.pathname.startsWith('/logout') ? styles.currentStyle : styles.normalStyle}
                 >
-                    <ListItemIcon>
+                    <ListItemIcon sx={styles.icon}>
                         <LogoutIcon sx={{ color: location.pathname.startsWith("/logout") ? '#4d1c9c' : 'inherit' }} />
                     </ListItemIcon>
                     <ListItemText primary="Logout" />
                 </ListItemButton>
-
             </React.Fragment>
         </>
     );
 }
 
-export default SideBar;
-
 const styles = {
     normalStyle: {
-        color: "inherit",
-        backgroundColor: "inherit"
+        color: 'inherit',
+        backgroundColor: 'inherit',
+        '&:hover': {
+            backgroundColor: '#8159c2',
+        },
+        borderRadius: '8px',
+        transition: 'background-color 0.3s ease',
     },
     currentStyle: {
-        color: "#4d1c9c",
-        backgroundColor: "#ebebeb"
+        color: '#4d1c9c',
+        backgroundColor: '#ebebeb',
+        fontWeight: 'bold',
+        '&:hover': {
+            backgroundColor: '#dcdcdc',
+        },
+        transition: 'background-color 0.3s ease, color 0.3s ease',
     },
-}
+    icon: {
+        transition: 'color 0.3s ease',
+    },
+};
+
+export default SideBar;

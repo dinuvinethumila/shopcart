@@ -75,8 +75,8 @@ const ShippingPage = ({ handleNext, profile }) => {
       newErrors.country = '';
     }
 
-    if (formData.pinCode.trim() === '' || isNaN(formData.pinCode) || formData.pinCode.length !== 6) {
-      newErrors.pinCode = 'Pin Code is required and should be a 6-digit number';
+    if (formData.pinCode.trim() === '' || isNaN(formData.pinCode) || formData.pinCode.length !== 5) {
+      newErrors.pinCode = 'Pin Code is required and should be a 5-digit number';
     } else {
       newErrors.pinCode = '';
     }
@@ -160,13 +160,13 @@ const ShippingPage = ({ handleNext, profile }) => {
               City : {shippingData && shippingData.city}
             </StyledTypography>
             <StyledTypography variant="h6">
-              State : {shippingData && shippingData.state}
+              Lane : {shippingData && shippingData.state}
             </StyledTypography>
             <StyledTypography variant="h6">
               Country : {shippingData && shippingData.country}
             </StyledTypography>
             <StyledTypography variant="h6">
-              Pin Code : {shippingData && shippingData.pinCode}
+              Zip Code : {shippingData && shippingData.pinCode}
             </StyledTypography>
             <StyledTypography variant="h6">
               Phone Number : {shippingData && shippingData.phoneNo}
@@ -431,5 +431,5 @@ const ShippingPage = ({ handleNext, profile }) => {
 export default ShippingPage;
 
 const StyledTypography = styled(Typography)`
-  margin-bottom: 10px;
+  margin-bottom: 10px;
 `;
